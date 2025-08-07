@@ -41,3 +41,7 @@ const umf = b.dependency("umf", .{
 
 exe.root_module.addImport("umf", umf);
 ```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
