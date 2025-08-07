@@ -1,0 +1,15 @@
+.{
+    .name = .umf_zig,
+    .version = "1.0.0",
+
+    .dependencies = .{},
+
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+
+    .minimum_zig_version = "0.14.1",
+    .fingerprint = 0x2cc568fcbacea439,
+}
