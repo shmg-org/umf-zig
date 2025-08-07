@@ -128,13 +128,11 @@ pub fn parse (source: []const u8, allocator: std.mem.Allocator) !Metadata {
         if (trimmed.len == 0 or trimmed[0] == '#') {
             continue;
         } else if (trimmed[0] == '[' and trimmed[trimmed.len - 1] == ']') {
-            const name = std.mem.trim(u8, trimmed[1..trimmed.len - 1], " "); 
+            header = std.mem.trim(u8, trimmed[1..trimmed.len - 1], " "); 
 
-            if (name.len == 0) {
+            if (header.len == 0) {
                 return error.EmptyHeaderName;
             }
-
-            header = name;
         } else if (std.mem.indexOfScalar(u8, trimmed, ':')) |separator_index| {
             const name = std.mem.trim(u8, trimmed[0..separator_index], " ");
             const value = std.mem.trim(u8, trimmed[separator_index + 1..], " "); 
