@@ -40,7 +40,9 @@ pub const Metadata = struct {
     // Get a field.
     pub fn get(self: *Metadata, header: []const u8, name: []const u8) ?[]const u8 {
         if (self.groups.get(header)) |group| {
-            return group.get(name);
+            if (group.get(name)) |value| {
+                return value;
+            }
         }
 
         return self.global.get(name);
